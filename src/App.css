@@ -1,0 +1,142 @@
+.body{
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh; /* This will make the container take up the full viewport height */
+}
+
+.navbar-fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+}
+
+.custom-button {
+  background-color: darkgray;
+  color: white;
+}
+
+.login{
+  padding: 20px;
+}
+
+.register{
+  padding:20px
+}
+.searchbar {
+  width: 50%;
+}
+
+@media (max-width: 767px) {
+  .searchbar {
+    width: 100%;
+  }
+}
+
+.searchbar-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 75px;
+  height: 13vh; /* Set the height of the parent container to 100% of the viewport */
+}
+
+.artworkcard{
+  margin: 0px;
+  width: "10rem" !important;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Adjust the shadow properties as needed */
+}
+
+.artworkGrid{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 8px; /* Adjust the desired space between the page numbers */
+}
+
+.pagination__link {
+  text-decoration: none; /* Remove underline */
+  color: #000000; /* Replace with your desired color */
+}
+
+.pagination__link.active {
+  color: #FF0000; /* Replace with your desired color for the active page number */
+}
+
+.pagination__break {
+  margin: 0 4px; /* Adjust the desired margin around the break element */
+}
+
+.pagination__page {
+  display: inline-block;
+}
+
+.pagination__page-link {
+  cursor: pointer;
+  padding: 4px 8px; /* Adjust the desired padding around the page link */
+}
+
+.card {
+  overflow: hidden;
+  position: relative;
+}
+
+.page-title{
+  margin-top: 5rem !important;
+}
+
+.card-cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+}
+
+.card-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+.card:hover .card-content {
+  opacity: 1;
+}
+
+.art-card {
+  margin-left: 0rem;
+}
+
+@media (max-width: 767px) {
+  .art-card {
+    margin-right: 0;
+    display: flex;
+    justify-content: center;
+  }
+}
