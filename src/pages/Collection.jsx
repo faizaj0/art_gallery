@@ -3,6 +3,8 @@ import { useAuth } from "../context/AuthProvider";
 import { supabase } from "../superbase/Client";
 import ArtworkGrid from "../components/ArtworkGrid";
 
+import imagePlaceholder from '../images/images.jpeg'
+
 const Collections = () => {
     const { user } = useAuth();
     const [artworks, setArtworks] = useState([]);
@@ -30,13 +32,14 @@ const Collections = () => {
                         const url = `https://api.harvardartmuseums.org/object/${artworkId}?apikey=${apiKey}&fields=primaryimageurl,title,people,dated,id`;
                         const response = await fetch(url);
                         const artworkData = await response.json();
+                        const imageUrl = artworkData.images && artworkData.images.length > 0 ? artworkData.images[0].baseimageurl : imagePlaceholder;
 
                         return {
                             id: artworkData.id,
                             title: artworkData.title,
                             people: artworkData.people,
                             dated: artworkData.dated,
-                            imageUrl: artworkData.images[0].baseimageurl,  // adjust based on actual data structure if necessary
+                            imageUrl: imageUrl,  // adjust based on actual data structure if necessary
                         };
                     })
                 );
